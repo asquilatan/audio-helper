@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />    
+    <title>audio-helper</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main class="panel">
+      <header>
+        <h1 class="headline">AUDIO-HELPER</h1>
+        <p id="status" class="status">Ready</p>
+      </header>
+
+      <!-- Volume Section -->
+      <div class="volume-section">
+        <span class="volume-label">Volume</span>
+        <div class="volume-header">
+          <strong id="volumeValue" class="volume-value-large">100%</strong>
+          <button id="resetButton" class="volume-reset" type="button">Reset to 100%</button>
+        </div>
+        <div class="slider-wrapper">
+          <input id="volumePercent" type="range" class="filled-slider volume-slider" min="0" max="500" step="1" value="100" />
+        </div>
+        <div class="volume-ticks">
+          <div class="tick" style="left: 0%;"><span>0%</span></div>
+          <div class="tick" style="left: 20%;"><span>100%</span></div>
+          <div class="tick" style="left: 40%;"><span></span></div>
+          <div class="tick" style="left: 60%;"><span></span></div>
+          <div class="tick" style="left: 80%;"><span></span></div>
+          <div class="tick" style="left: 100%;"><span>500%</span></div>
+        </div>
+      </div>
+
+      <!-- Custom Sliders -->
+      <div class="sliders-section">
+        <div class="control col-control">
+          <div class="control-header">
+            <span class="control-label">Bass</span>
+            <strong id="bassValue" class="control-value">0 dB</strong>
+          </div>
+          <input id="bassBoostDb" type="range" class="filled-slider" min="-20" max="20" step="1" value="0" />
+        </div>
+
+        <div class="control col-control">
+          <div class="control-header">
+            <span class="control-label">Voice</span>
+            <strong id="voiceValue" class="control-value">0 dB</strong>
+          </div>
+          <input id="voiceBoostDb" type="range" class="filled-slider" min="0" max="20" step="1" value="0" />
+        </div>
+
+        <div class="control col-control">
+          <div class="control-header">
+            <span class="control-label">Treble</span>
+            <strong id="trebleValue" class="control-value">0 dB</strong>
+          </div>
+          <input id="trebleBoostDb" type="range" class="filled-slider" min="-20" max="20" step="1" value="0" />
+        </div>
+      </div>
+
+      <!-- Presets -->
+      <div class="presets-section">
+        <button id="preset-default" class="preset-btn">Default</button>
+        <button id="preset-voice" class="preset-btn">Voice Boost</button>
+        <button id="preset-bass" class="preset-btn">Bass Boost</button>
+      </div>
+
+      <!-- Switches -->
+      <div class="switches-section">
+        <label class="flipswitch-row">
+          <div class="switch-icon-box">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
+              <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path>
+            </svg>
+          </div>
+          <div class="switch-content">
+            <div class="switch-header">
+              <span class="switch-label">Audio Mode</span>
+              <div class="flipswitch-container">
+                <span class="flip-label off-label">STEREO</span>
+                <input id="mono" type="checkbox" class="flipswitch" />
+                <span class="flip-label on-label">MONO</span>
+                <div class="flip-slider"></div>
+              </div>
+            </div>
+            <p class="switch-description">Mixes L/R channels into one.</p>
+          </div>
+        </label>
+
+        <label class="flipswitch-row">
+          <div class="switch-icon-box">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
+              <rect x="9" y="9" width="6" height="6"></rect>
+              <line x1="9" y1="1" x2="9" y2="4"></line>
+              <line x1="15" y1="1" x2="15" y2="4"></line>
+              <line x1="9" y1="20" x2="9" y2="23"></line>
+              <line x1="15" y1="20" x2="15" y2="23"></line>
+              <line x1="20" y1="9" x2="23" y2="9"></line>
+              <line x1="20" y1="14" x2="23" y2="14"></line>
+              <line x1="1" y1="9" x2="4" y2="9"></line>
+              <line x1="1" y1="14" x2="4" y2="14"></line>
+            </svg>
+          </div>
+          <div class="switch-content">
+            <div class="switch-header">
+              <span class="switch-label">Limiter</span>
+              <div class="flipswitch-container">
+                <span class="flip-label off-label">OFF</span>
+                <input id="limiter" type="checkbox" class="flipswitch" />
+                <span class="flip-label on-label">ON</span>
+                <div class="flip-slider"></div>
+              </div>
+            </div>
+            <p class="switch-description">Prevents clipping at max volume.</p>
+          </div>
+        </label>
+      </div>
+    </main>
+    <script src="popup.js"></script>
+  </body>
+</html>

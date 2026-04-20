@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "audio-helper",
+  "version": "1.0.0",
+  "description": "Control and enhance audio for the current tab: volume boost, voice boost, bass boost, mono audio, and more.",
+  "permissions": ["tabs", "tabCapture", "offscreen"],
+  "icons": {
+    "16": "Wave_basis.png",
+    "48": "Wave_basis.png",
+    "128": "Wave_basis.png"
+  },
+  "action": {
+    "default_title": "audio-helper",
+    "default_icon": "Wave_basis.png",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  }
+}

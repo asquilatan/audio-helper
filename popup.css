@@ -1,0 +1,333 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #000000;
+  --on-primary: #e2e2e2;
+  --surface: #f9f9f9;
+  --surface-container-highest: #e2e2e2;
+  --surface-container-lowest: #ffffff;
+  --on-surface-subtle: #4a4a4a;
+  --track-color: var(--surface-container-highest);
+  --fill-color: var(--primary);
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: var(--surface);
+  color: var(--primary);
+  -webkit-font-smoothing: antialiased;
+}
+
+.panel {
+  width: 360px;
+  padding: 16px;
+}
+
+header {
+  margin-bottom: 24px;
+}
+
+.headline {
+  font-family: 'Inter', sans-serif;
+  font-size: 2rem;
+  font-weight: 900;
+  margin: 0 0 4px;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.status {
+  margin: 0;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--on-surface-subtle);
+}
+
+.volume-section,
+.sliders-section,
+.presets-section {
+  margin-bottom: 24px;
+}
+
+.switches-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.volume-label {
+  display: block;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.volume-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.volume-value-large {
+  font-size: 1.5rem;
+  font-weight: 900;
+  font-variant-numeric: tabular-nums;
+}
+
+.volume-reset {
+  background: var(--surface-container-highest);
+  border: none;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 12px;
+  cursor: pointer;
+  color: var(--primary);
+  transition: background 0.2s;
+}
+
+.volume-reset:hover {
+  background: #d4d4d4;
+}
+
+.volume-ticks {
+  position: relative;
+  margin-top: 4px;
+  height: 24px;
+  margin-left: 9px;
+  margin-right: 9px;
+}
+
+.tick {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translateX(-50%);
+}
+
+.tick::before {
+  content: "";
+  height: 6px;
+  width: 2px;
+  background: var(--on-surface-subtle);
+  margin-bottom: 2px;
+}
+
+.tick span {
+  font-size: 0.6875rem;
+  color: var(--on-surface-subtle);
+  font-weight: 600;
+}
+
+.tick:first-child span {
+  transform: translateX(8px);
+}
+.tick:last-child span {
+  transform: translateX(-8px);
+}
+.slider-wrapper {
+  margin-bottom: 12px;
+}
+
+.sliders-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.col-control {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.control-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.control-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.control-value {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--on-surface-subtle);
+  font-variant-numeric: tabular-nums;
+}
+
+.presets-section {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.preset-btn {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid var(--surface-container-highest);
+  background: var(--surface-container-lowest);
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  font-family: inherit;
+}
+
+.preset-btn:hover {
+  background: var(--surface-container-highest);
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%;
+  background: transparent;
+  padding: 4px 0;
+  margin: 0;
+}
+
+input[type="range"]:focus {
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 6px;
+  cursor: pointer;
+  background: var(--slider-bg, var(--surface-container-highest));
+  border: none;
+  border-radius: 9999px;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  height: 18px;
+  width: 18px;
+  background: var(--primary);
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -6px;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+  transition: transform 0.1s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+}
+
+.flipswitch-row {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  cursor: pointer;
+}
+
+.switch-icon-box {
+  width: 40px;
+  height: 40px;
+  background: var(--surface-container-highest);
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+  color: var(--primary);
+}
+
+.switch-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.switch-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.switch-description {
+  margin: 0;
+  font-size: 0.6875rem; /* smaller font size */
+  color: var(--on-surface-subtle);
+  line-height: 1.3;
+  max-width: 140px; /* tightly bounds the text to not extend below the flipswitch */
+}
+
+.switch-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.flipswitch-container {
+  display: flex;
+  align-items: center;
+  background: var(--surface-container-highest);
+  padding: 4px;
+  position: relative;
+  border-radius: 9999px;
+  width: 130px;
+  justify-content: space-between;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+  flex-shrink: 0;
+}
+
+.flip-label {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  z-index: 2;
+  width: 50%;
+  text-align: center;
+  padding: 4px 0;
+  transition: color 0.2s ease;
+  pointer-events: none;
+}
+
+.off-label { color: var(--on-surface-subtle); }
+.on-label { color: var(--primary); }
+
+input.flipswitch:checked ~ .off-label { color: var(--primary); }
+input.flipswitch:checked ~ .on-label { color: var(--on-surface-subtle); }
+
+input.flipswitch {
+  -webkit-appearance: none;
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  margin: 0; cursor: pointer; z-index: 3; opacity: 0;
+}
+
+.flip-slider {
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  left: 4px;
+  width: calc(50% - 4px);
+  background: var(--surface-container-lowest);
+  border-radius: 9999px;
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
+  pointer-events: none;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+input.flipswitch:checked ~ .flip-slider {
+  transform: translateX(100%);
+}
