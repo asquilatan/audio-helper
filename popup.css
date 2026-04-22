@@ -27,18 +27,9 @@ body {
 }
 
 header {
-  margin-bottom: 24px;
+  margin-bottom: 16px;
 }
 
-.headline {
-  font-family: 'Inter', sans-serif;
-  font-size: 2rem;
-  font-weight: 900;
-  margin: 0 0 4px;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  text-transform: uppercase;
-}
 
 .status {
   margin: 0;
